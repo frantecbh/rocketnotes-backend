@@ -6,3 +6,6 @@ import 'express-async-errors';
 
 
 npm i bcryptjs
+
+
+npm i jsonwebtoken
