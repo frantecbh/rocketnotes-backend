@@ -1,4 +1,4 @@
-import { verify } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 import { AppError } from '../utils/AppError.js'
 import { authConfig } from '../configs/auth.js'
 
@@ -15,7 +15,7 @@ export function ensureAutheticated(request, response, next) {
   const { secret } = authConfig.jwt
 
   try {
-    const { sub: user_id } = verify(token, secret)
+    const { sub: user_id } = jwt.verify(token, secret)
 
     request.user = {
       id: user_id,

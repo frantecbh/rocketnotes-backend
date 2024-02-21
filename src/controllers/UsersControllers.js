@@ -34,13 +34,13 @@ class UsersControllers {
   }
 
   async update(request, response) {
-    const { id } = request.params
+    const user_id = request.user.id
 
     const { name, email, password, oldPassword } = request.body
 
     const user = await prisma.users.findFirst({
       where: {
-        id,
+        id: user_id,
       },
     })
 
@@ -79,7 +79,7 @@ class UsersControllers {
         password: passwrdHashd,
       },
       where: {
-        id,
+        id: user_id,
       },
     })
 

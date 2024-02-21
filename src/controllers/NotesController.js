@@ -2,7 +2,9 @@ import { prisma } from '../database/prisma.js'
 
 class NotesController {
   async index(request, response) {
-    const { userId, title, tags } = request.query
+    const { title, tags } = request.query
+
+    const userId = request.user.id
 
     let notes
 
@@ -54,7 +56,7 @@ class NotesController {
 
   async create(request, response) {
     const { title, description, tags, links } = request.body
-    const { userId } = request.params
+    const userId = request.user.id
 
     const noteId = await prisma.notes.create({
       data: {
