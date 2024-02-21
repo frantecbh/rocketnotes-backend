@@ -18,4 +18,4 @@ const MULTER = {
   }),
 }
 
-export { TMP_FOLDER, UPLOADS_FOLDER, MULTER }
+export const uploadConfig = { TMP_FOLDER, UPLOADS_FOLDER, MULTER }
