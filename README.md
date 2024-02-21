@@ -9,3 +9,5 @@ npm i bcryptjs
 
 
 npm i jsonwebtoken
+
+npm i multer
